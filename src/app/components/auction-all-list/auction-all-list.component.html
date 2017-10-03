@@ -1,0 +1,7 @@
+<p>Here you can see all current auctions</p>
+<ul class="auctions-list">
+  <li *ngFor="let auction of auctions">
+      <p>{{auction}}</p>
+      <a [routerLink]="['/home', recipe._id]">See recipe</a>
+  </li>
+</ul>

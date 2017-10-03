@@ -1,10 +1,11 @@
-<header>
-  <h1>Welcome to Auctions</h1>
+<header class="site-header">
+  <app-auth-user></app-auth-user>
+  <hr/>
 </header>
 
 <router-outlet></router-outlet>
 
-<footer>
-  <p>copyright AuctionsCorp</p>
-  <p><a [routerLink]="['/']">Home</a>
+<footer class="site-footer">
+  <hr/>
+  <p><a [routerLink]="['/playground']">playground</a>
 </footer>

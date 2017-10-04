@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AuctionsService } from '../../services/auctions.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 import { Auction } from '../../models/auction-model';
+
 
 
 @Component({
@@ -8,13 +9,13 @@ import { Auction } from '../../models/auction-model';
   templateUrl: './auction-all-list.component.html',
   styleUrls: ['./auction-all-list.component.css']
 })
-export class AuctionAllListComponent implements OnInit {
-  auctionsList: Object[];
 
-  constructor(private auctions: AuctionsService) { }
+export class AuctionAllListComponent implements OnInit {
+  @Input() rawAuctions: Auction[];
+
+  constructor() { }
 
   ngOnInit() {
-    this.auctions.getAuctions().subscribe((auctionsList) => this.auctionsList = auctionsList);
   }
 
 }

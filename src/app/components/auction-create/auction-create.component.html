@@ -1,3 +1,9 @@
-<p>
-  auction-create works!
-</p>
+<form (ngSubmit)="submitForm(auctionForm)" #auctionForm="ngForm">
+  <label>Item:</label>
+  <input type="text" placeholder="name the auction-item">
+  <label>Quantity</label>
+  <input type="number">
+  <label>Expires on:</label>
+  <input type="date">
+  <button type="submit">Create Auction</button>
+</form>

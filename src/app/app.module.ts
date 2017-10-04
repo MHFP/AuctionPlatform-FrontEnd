@@ -6,6 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from "@angular/router";
 import { MdButtonModule, MdCheckboxModule } from '@angular/material';
 
+import { routes } from './routes/app.routes'
+
+
 import { AuthLoginComponent } from './components/auth-login/auth-login.component';
 import { AuthLogoutComponent } from './components/auth-logout/auth-logout.component';
 import { AuthSignupComponent } from './components/auth-signup/auth-signup.component';
@@ -26,17 +29,9 @@ import { AuctionCreateComponent } from './components/auction-create/auction-crea
 import { AuctionMyAuctionsListComponent } from './components/auction-my-auctions-list/auction-my-auctions-list.component';
 import { AuctionMyBidsListComponent } from './components/auction-my-bids-list/auction-my-bids-list.component';
 import { AuctionAllListComponent } from './components/auction-all-list/auction-all-list.component';
+import { AuctionActiveComponent } from './components/auction-active/auction-active.component';
 
-// import router
 
-const routes: Routes = [
-  { path: '', redirectTo: 'tasks', pathMatch: 'full' },
-  { path: 'auth/login', component: LoginPageComponent },
-  { path: 'auth/signup', component: SignupPageComponent },
-  { path: 'playground', component: PlaygroundPageComponent },
-  { path: 'auction', component: AuctionPageComponent },
-
-];
 
 @NgModule({
   declarations: [
@@ -53,6 +48,7 @@ const routes: Routes = [
     AuctionMyAuctionsListComponent,
     AuctionMyBidsListComponent,
     AuctionAllListComponent,
+    AuctionActiveComponent,
   ],
   imports: [
     BrowserModule,

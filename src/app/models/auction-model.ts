@@ -4,7 +4,8 @@ export class Auction {
   ownerId: string;
   name: string;
   quantity: number;
-  date: Date;
+  publishedDate: Date;
+  expirationDate: Date;
   status: AuctionStatus;
   bids: [{
     date: Date;

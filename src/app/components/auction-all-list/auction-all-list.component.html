@@ -1,9 +1,9 @@
-AuctionAllList works
-
 <section>
-  <ul class="auction-list">
-    <li class="auction-card" *ngFor="let rawAuction of rawAuctions">
-      <app-auction-active [rawAuction]="rawAuction"></app-auction-active>
+  <ul class="card-grid auctions">
+    <li class="card auction" *ngFor="let rawAuction of rawAuctions">
+      <p>Item: {{rawAuction.name}}</p>
+      <p>Quantity: {{rawAuction.quantity}}</p>
+      <p>Expires on: {{rawAuction.expirationDate}}</p>
       <p><a [routerLink]="['/auction',rawAuction._id]"> details (link) </a></p>
     </li>
   </ul>

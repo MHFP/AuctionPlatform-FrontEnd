@@ -1,0 +1,9 @@
+@mixin inverse() {
+  color: $color-body-inverse;
+  background: $color-primary;
+
+  a {
+    color: $color-body-inverse;
+    text-decoration: underline;
+  }
+}

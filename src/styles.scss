@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+*/
+@import './styles/reset';
+@import './styles/variables';
+@import './styles/mixins';
+@import './styles/layout';
+@import './styles/typography';
+
+@import './styles/components/card';
+@import './styles/components/card-grid';
+
+@import './styles/components/site-header';
+@import './styles/components/site-footer';

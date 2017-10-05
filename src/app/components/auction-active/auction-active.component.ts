@@ -5,7 +5,7 @@ import { Auction } from '../../models/auction-model';
 @Component({
   selector: 'app-auction-active',
   templateUrl: './auction-active.component.html',
-  styleUrls: ['./auction-active.component.css']
+  styleUrls: ['./auction-active.component.scss']
 })
 
 export class AuctionActiveComponent implements OnInit {

@@ -1,11 +1,14 @@
 <header class="site-header">
-  <app-auth-user></app-auth-user>
-  <hr/>
+  <div class="container">
+    <h1>Auction Platform</h1>
+    <app-auth-user></app-auth-user>
+  </div>
 </header>
 
 <router-outlet></router-outlet>
 
-<footer>
-  <hr/>
-  <p><a [routerLink]="['/playground']">playground</a>
+<footer class="site-footer">
+  <div class="container">
+    <p><a [routerLink]="['/playground']">playground</a><br><a [routerLink]="['/dashboard']">dashboard</a>
+  </div>
 </footer>

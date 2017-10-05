@@ -1,9 +1,9 @@
-<form (ngSubmit)="submitForm(auctionForm)" #auctionForm="ngForm">
+<form (ngSubmit)="handleNewAuction(auctionForm)" #auctionForm="ngForm">
   <label>Item:</label>
-  <input type="text" placeholder="name the auction-item">
+  <input type="text" placeholder="name the auction-item" name="auctionName" [(ngModel)]="auctionName" required><br>
   <label>Quantity</label>
-  <input type="number">
+  <input type="number" name="quantity" [(ngModel)]="quantity" required><br>
   <label>Expires on:</label>
-  <input type="date">
-  <button type="submit">Create Auction</button>
+  <input type="date" name="expirationDate" [(ngModel)]="date" required>
+  <button type="submit" [disabled]="auctionForm.invalid">Create Auction</button>
 </form>

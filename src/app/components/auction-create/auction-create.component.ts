@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AuctionsService } from '../../services/auctions.service';
 import { Auction } from '../../models/auction-model';
 
 @Component({
@@ -8,10 +8,17 @@ import { Auction } from '../../models/auction-model';
   styleUrls: ['./auction-create.component.css']
 })
 export class AuctionCreateComponent implements OnInit {
+  results:string;
 
-  constructor() { }
+  constructor(private createAuction: AuctionsService) { }
 
   ngOnInit() {
   }
 
+  handleNewAuction(form){
+    const newAuction = {name: form.value.name, quantity: form.value.quantity, expirationDate: form.value.expirationDate};
+    this.createAuction.postAuction(newAuction).subscribe(res => {
+      this.results = res;
+    });
+  }
 }

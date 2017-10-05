@@ -6,6 +6,9 @@ import 'rxjs/add/operator/map';
 
 import { environment } from '../../environments/environment';
 
+import { Auction } from '../models/auction-model';
+
+
 const apiUrl = environment.apiUrl + '/auction';
 
 @Injectable()
@@ -15,5 +18,10 @@ export class AuctionsService {
   getAuctions(){
     return this.http.get(apiUrl)
       .map((res) => res.json());
+  }
+
+  postAuction(auction: Object) {
+    return this.http.post(apiUrl, auction)
+    .map((res) => res.json());
   }
 }

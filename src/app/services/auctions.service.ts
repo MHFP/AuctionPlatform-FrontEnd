@@ -15,8 +15,13 @@ const apiUrl = environment.apiUrl + '/auction';
 export class AuctionsService {
   constructor(private http: Http) {}
 
-  getAuctions(){
+  getAuctions() {
     return this.http.get(apiUrl)
+      .map((res) => res.json());
+  }
+
+  get(id:string) {
+    return this.http.get(apiUrl + '/' + id)
       .map((res) => res.json());
   }
 

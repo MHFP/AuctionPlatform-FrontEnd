@@ -1,9 +1,10 @@
 AuctionAllList works
 
 <section>
-  <ul>
-    <li *ngFor="let rawAuction of rawAuctions">
+  <ul class="auction-list">
+    <li class="auction-card" *ngFor="let rawAuction of rawAuctions">
       <app-auction-active [rawAuction]="rawAuction"></app-auction-active>
+      <p><a [routerLink]="['/auction',rawAuction._id]"> details (link) </a></p>
     </li>
   </ul>
 </section>

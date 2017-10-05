@@ -1,0 +1,10 @@
+.auction-list{
+  list-style-type: none;
+}
+
+.auction-card{
+  border: thin solid black;
+  width: 200px;
+  margin-bottom: 20px;
+  padding: 10px;
+}

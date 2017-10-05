@@ -23,13 +23,14 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { PlaygroundPageComponent } from './pages/playground-page/playground-page.component';
-import { AuctionPageComponent } from './pages/auction-page/auction-page.component';
 
 import { AuctionCreateComponent } from './components/auction-create/auction-create.component';
 import { AuctionMyAuctionsListComponent } from './components/auction-my-auctions-list/auction-my-auctions-list.component';
 import { AuctionMyBidsListComponent } from './components/auction-my-bids-list/auction-my-bids-list.component';
 import { AuctionAllListComponent } from './components/auction-all-list/auction-all-list.component';
 import { AuctionActiveComponent } from './components/auction-active/auction-active.component';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { AuctionPageComponent } from './pages/auction-page/auction-page.component';
 
 
 
@@ -43,12 +44,13 @@ import { AuctionActiveComponent } from './components/auction-active/auction-acti
     AuthLogoutComponent,
     AuthSignupComponent,
     AuthUserComponent,
-    AuctionPageComponent,
     AuctionCreateComponent,
     AuctionMyAuctionsListComponent,
     AuctionMyBidsListComponent,
     AuctionAllListComponent,
     AuctionActiveComponent,
+    DashboardPageComponent,
+    AuctionPageComponent,
   ],
   imports: [
     BrowserModule,

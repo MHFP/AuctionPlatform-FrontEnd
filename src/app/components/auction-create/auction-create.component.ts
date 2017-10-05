@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuctionsService } from '../../services/auctions.service';
-import { Auction } from '../../models/auction-model';
 
 @Component({
   selector: 'app-auction-create',

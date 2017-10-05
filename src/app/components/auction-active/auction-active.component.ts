@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { Auction } from '../../models/auction-model';
 
@@ -9,13 +8,12 @@ import { Auction } from '../../models/auction-model';
   styleUrls: ['./auction-active.component.css']
 })
 
-
 export class AuctionActiveComponent implements OnInit {
   @Input() rawAuction: Auction;
 
-  constructor(private router: Router) { }
+  constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

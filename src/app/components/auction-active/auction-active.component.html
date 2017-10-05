@@ -1,2 +1,5 @@
-
-<p class="text">{{rawAuction.name}}</p>
+<div *ngIf="rawAuction">
+  <p>Item: {{rawAuction.name}}</p>
+  <p>Quantity: {{rawAuction.quantity}}</p>
+  <p>Expires on: {{rawAuction.expirationDate}}</p>
+</div>

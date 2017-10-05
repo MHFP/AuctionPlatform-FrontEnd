@@ -9,6 +9,7 @@ import { Auction } from '../../models/auction-model';
 })
 export class AuctionCreateComponent implements OnInit {
   results:string;
+  success: boolean = false;
 
   constructor(private createAuction: AuctionsService) { }
 
@@ -20,5 +21,10 @@ export class AuctionCreateComponent implements OnInit {
     this.createAuction.postAuction(newAuction).subscribe(res => {
       this.results = res;
     });
+    this.success = true;
+    setTimeout(() => {
+      this.success = false;
+    }, 2000);
+    form.reset();
   }
 }

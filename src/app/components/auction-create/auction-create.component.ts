@@ -39,7 +39,7 @@ export class AuctionCreateComponent implements OnInit {
     let expirationDate = form.value.expirationDate;
     console.log(currentDate);
     console.log(expirationDate);
-    if(currentDate<expirationDate){
+    if(currentDate < expirationDate){
       this.status = 'open';
     }
   }

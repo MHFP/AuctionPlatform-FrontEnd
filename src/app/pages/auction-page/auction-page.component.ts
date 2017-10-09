@@ -1,6 +1,5 @@
 import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuctionsService } from '../../services/auctions.service';
 
@@ -31,7 +30,6 @@ export class AuctionPageComponent implements OnInit {
       });
     }
 
-
     getAuctionInfo(id) {
       this.auctionsService.get(id)
       .subscribe((auction) => {
@@ -40,9 +38,12 @@ export class AuctionPageComponent implements OnInit {
       return this.auctionId = id;
     }
 
-
     handleBidSubmition(bid) {
     this.router.navigate(['/auction', this.auctionId]);
+    }
+
+    filterOpenAuctions(){
+
     }
 
 }

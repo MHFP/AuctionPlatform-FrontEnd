@@ -2,6 +2,7 @@
   <p>Item: {{rawAuction.name}}</p>
   <p>Quantity: {{rawAuction.quantity}}</p>
   <p>Expires on: {{rawAuction.expirationDate}}</p>
+  <p *ngIf="rawAuction.bids.length>0">Number of bids: {{rawAuction.bids.length}} </p>
 </div>
 <div class="bid interaction-container">
   <form (ngSubmit)="handleNewBid(bidForm)" #bidForm="ngForm" class="bid-form" >

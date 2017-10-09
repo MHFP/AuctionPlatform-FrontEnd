@@ -19,7 +19,10 @@ export class AuctionActiveComponent implements OnInit {
   results;
 
 
-  constructor(private auctionsService: AuctionsService, private router: Router) { }
+  constructor(
+    private auctionsService: AuctionsService,
+    private router: Router
+  ) { }
 
     ngOnInit() {
     }

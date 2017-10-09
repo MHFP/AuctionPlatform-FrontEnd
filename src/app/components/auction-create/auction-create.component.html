@@ -4,8 +4,10 @@
   <label>Quantity</label>
   <input type="number" name="quantity" [(ngModel)]="quantity" required><br>
   <label>Expires on:</label>
-  <input type="date" name="expirationDate" [(ngModel)]="expirationDate" required>
+  <input  type="datetime-local" value="2017-06-01T08:30" name="expirationDate" [(ngModel)]="expirationDate" required>
   <button type="submit" [disabled]="auctionForm.invalid">Create Auction</button>
 </form>
 
+
 <p *ngIf="success">You successfully created an auction!</p>
+<p *ngIf="open">Your auction is open to the public!</p>

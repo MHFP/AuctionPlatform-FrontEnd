@@ -1,14 +1,19 @@
 <header class="site-header">
-  <div class="container">
-    <h1>Auction Platform</h1>
-    <app-auth-user></app-auth-user>
-  </div>
+    <nav class="container">
+      <h1 id="head-title">Auction Anything</h1>
+      <div class="nav-links">
+        <span><a href="/">Home</a></span>
+        <span><a href="/dashboard">Dashboard</a></span>
+        <button type="button">Logout</button>
+      </div>
+    </nav>
+    <app-auth-user>Authorization</app-auth-user>
 </header>
 
 <router-outlet></router-outlet>
 
 <footer class="site-footer">
   <div class="container">
-    <p><a [routerLink]="['/playground']">playground</a><br><a [routerLink]="['/dashboard']">dashboard</a>
+    <p><a [routerLink]="['/playground']">playground</a>
   </div>
 </footer>

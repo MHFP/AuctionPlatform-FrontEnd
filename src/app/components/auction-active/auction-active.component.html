@@ -3,3 +3,9 @@
   <p>Quantity: {{rawAuction.quantity}}</p>
   <p>Expires on: {{rawAuction.expirationDate}}</p>
 </div>
+<div class="bid interaction-container">
+  <form (ngSubmit)="handleNewBid(bidForm)" #bidForm="ngForm" class="bid-form" >
+    <input type="number" placeholder="Set a bid-price" name="bidPrice" [(ngModel)]="bidPrice" required>
+    <button type="submit" [disabled]="!bidForm.valid">Place a bid</button>
+  </form>
+</div>

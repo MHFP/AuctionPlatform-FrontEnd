@@ -1,4 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuctionsService } from '../../services/auctions.service';
 
 import { Auction } from '../../models/auction-model';
 
@@ -10,10 +13,30 @@ import { Auction } from '../../models/auction-model';
 
 export class AuctionActiveComponent implements OnInit {
   @Input() rawAuction: Auction;
+  @Input() auctionId: String;
+  @Output() onNewBid = new EventEmitter<any>();
 
-  constructor() { }
+  results;
+
+
+  constructor(private auctionsService: AuctionsService, private router: Router) { }
 
     ngOnInit() {
     }
+
+  handleNewBid(bidForm) {
+    console.log(this.auctionId);
+    const newBid = {
+        bidderId: String,
+        auctionId: this.auctionId,
+        date: new Date(),
+        bidPrice: bidForm.value.bidPrice
+    };
+
+    this.auctionsService.postBid(this.auctionId, newBid).subscribe(res => {
+      this.results = res;
+      this.onNewBid.emit(this.results);
+    });
+  }
 
 }

@@ -1,4 +1,3 @@
-import { AuctionStatus } from './enums/auction-status.enum';
 
 export class Auction {
   ownerId: string;
@@ -6,10 +5,10 @@ export class Auction {
   quantity: number;
   publishedDate: Date;
   expirationDate: Date;
-  status: AuctionStatus;
+  status: String;
   bids: [{
     date: Date;
-    price: number;
+    bidPrice: number;
     bidderId: string;
   }]
   winner: {

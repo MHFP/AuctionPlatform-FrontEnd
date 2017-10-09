@@ -31,6 +31,7 @@ import { AuctionAllListComponent } from './components/auction-all-list/auction-a
 import { AuctionActiveComponent } from './components/auction-active/auction-active.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { AuctionPageComponent } from './pages/auction-page/auction-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 
 
@@ -51,6 +52,7 @@ import { AuctionPageComponent } from './pages/auction-page/auction-page.componen
     AuctionActiveComponent,
     DashboardPageComponent,
     AuctionPageComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

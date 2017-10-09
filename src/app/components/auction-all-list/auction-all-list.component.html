@@ -4,6 +4,7 @@
       <p>Item: {{rawAuction.name}}</p>
       <p>Quantity: {{rawAuction.quantity}}</p>
       <p>Expires on: {{rawAuction.expirationDate}}</p>
+      <p>Date of latest bid: {{rawAuction.bids[rawAuction.bids.length-1].date}} </p>
       <p><a [routerLink]="['/auction',rawAuction._id]"> details (link) </a></p>
     </li>
   </ul>

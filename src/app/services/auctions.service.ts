@@ -29,4 +29,10 @@ export class AuctionsService {
     return this.http.post(apiUrl, auction)
     .map((res) => res.json());
   }
+
+  postBid(auctionId, newBid: Object) {
+    return this.http.post(apiUrl + '/' + auctionId, newBid)
+    .map((res) => res.json());
+  }
+
 }

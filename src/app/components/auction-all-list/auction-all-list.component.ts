@@ -18,4 +18,6 @@ export class AuctionAllListComponent implements OnInit {
   ngOnInit() {
   }
 
+  
+
 }

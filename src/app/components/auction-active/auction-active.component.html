@@ -1,12 +1,18 @@
-<div *ngIf="rawAuction">
-  <p>Item: {{rawAuction.name}}</p>
-  <p>Quantity: {{rawAuction.quantity}}</p>
-  <p>Expires on: {{rawAuction.expirationDate}}</p>
-  <p *ngIf="rawAuction.bids.length>0">Number of bids: {{rawAuction.bids.length}} </p>
-</div>
-<div class="bid interaction-container">
-  <form (ngSubmit)="handleNewBid(bidForm)" #bidForm="ngForm" class="bid-form" >
-    <input type="number" placeholder="Set a bid-price" name="bidPrice" [(ngModel)]="bidPrice" required>
-    <button type="submit" [disabled]="!bidForm.valid">Place a bid</button>
-  </form>
+<div class="wrapper">
+  <div class="card">
+    <div *ngIf="rawAuction">
+      <p>Item: {{rawAuction.name}}</p>
+      <p>Quantity: {{rawAuction.quantity}}</p>
+      <p>Expires on: {{rawAuction.expirationDate}}</p>
+      <p *ngIf="rawAuction.bids.length>0">Number of bids: {{rawAuction.bids.length}} </p>
+    </div>
+    <div class="bid">
+      <form (ngSubmit)="handleNewBid(bidForm)" #bidForm="ngForm" class="bid-form" >
+        <input type="number" placeholder="Set a bid-price" name="bidPrice" [(ngModel)]="bidPrice" required>
+        <button type="submit" [disabled]="!bidForm.valid">Place a bid</button>
+      </form>
+    </div>
+  </div>
+  <p *ngIf="success">You successfully placed a bid.</p>
+
 </div>

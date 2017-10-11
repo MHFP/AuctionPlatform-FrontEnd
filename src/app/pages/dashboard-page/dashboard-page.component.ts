@@ -11,16 +11,22 @@ import { Auction } from '../../models/auction-model'
 })
 export class DashboardPageComponent implements OnInit {
   rawAuctions: Auction[];
-  openAuctions: Auction[];
+  bids: Object[] = [];
 
   constructor(private auctionsService: AuctionsService) {
     this.auctionsService.getAuctions().subscribe((auctions) => {
       this.rawAuctions = auctions;
+      for(var i=0; i<auctions.length; i++){
+        if(auctions[i].bids.length > 0){
+          this.bids.push(auctions[i]);
+        }
+      }
     });
+    console.log(this.bids)
   }
 
-
   ngOnInit() {
+
   }
 
 }

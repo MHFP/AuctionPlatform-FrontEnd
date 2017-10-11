@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuctionsService } from '../../services/auctions.service';
 
-
 @Component({
   selector: 'app-auction-create',
   templateUrl: './auction-create.component.html',
@@ -9,9 +8,10 @@ import { AuctionsService } from '../../services/auctions.service';
 })
 export class AuctionCreateComponent implements OnInit {
   results: string;
+  submitted: boolean = false;
+  saving: boolean = false;
   success: boolean = false;
-  status: string = "closed";
-
+  newAuction: any = {};
 
   constructor(private createAuction: AuctionsService) { }
 
@@ -33,44 +33,48 @@ export class AuctionCreateComponent implements OnInit {
             minuteFormatted;
   }
 
-  checkAuctionDate(form){
-    let date = new Date();
-    let currentDate = this.formatDate(date)
-    let expirationDate = form.value.expirationDate;
-    console.log(currentDate);
-    console.log(expirationDate);
-    if(currentDate < expirationDate){
-      this.status = 'open';
-    }
+  getUtcDate(date: any) : Date {
+    const parts = date.split("T");
+    const yParts = parts[0].split('-');
+    const tParts = parts[1].split(':');
+    return new Date(Date.UTC(yParts[0], yParts[1] - 1, yParts[2], tParts[0], tParts[1], 0));
   }
 
+  isValidAuctionDate(date: string) : boolean {
+    return this.getUtcDate(date) > new Date();
+  }
 
-  handleNewAuction(form){
-
-    this.checkAuctionDate(form);
-
-    if(this.status === 'open'){
-      const newAuction = {
-        name: form.value.name,
-        quantity: form.value.quantity,
-        expirationDate: form.value.expirationDate,
-        status: this.status
-      };
-
-      this.createAuction.postAuction(newAuction).subscribe(res => {
-        this.results = res;
-      });
-
-      this.success = true;
-      setTimeout(() => {
-        this.success = false;
-      }, 2000);
-
-      form.reset();
+  handleNewAuction(form) {
+    if (form.invalid) {
+      this.submitted = true;
+      return;
     }
 
-    if(this.status === 'closed'){
-    return alert("Please provide a valid expiration date for your auction!");
+    if (this.isValidAuctionDate(this.newAuction.expirationDate)) {
+
+      const newAuction = {
+        name: this.newAuction.name,
+        quantity: this.newAuction.quantity,
+        expirationDate: this.getUtcDate(this.newAuction.expirationDate),
+        status: 'open'
+      };
+
+      this.saving = true;
+      this.createAuction.postAuction(newAuction).subscribe(res => {
+        this.saving = false;
+        this.results = res;
+
+        this.success = true;
+        setTimeout(() => {
+          this.success = false;
+        }, 2000);
+
+        form.reset();
+        this.submitted = false;
+      });
+    }
+    else {
+      return alert("Please provide a valid expiration date for your auction!");
     }
   }
 }

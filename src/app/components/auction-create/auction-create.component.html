@@ -1,11 +1,24 @@
 <form (ngSubmit)="handleNewAuction(auctionForm)" #auctionForm="ngForm">
-  <label>Item:</label>
-  <input type="text" placeholder="name the auction-item" name="name" [(ngModel)]="name" required><br>
-  <label>Quantity</label>
-  <input type="number" name="quantity" [(ngModel)]="quantity" required><br>
-  <label>Expires on:</label>
-  <input  type="datetime-local" value="2017-06-01T08:30" name="expirationDate" [(ngModel)]="expirationDate" required>
-  <button type="submit" [disabled]="auctionForm.invalid">Create Auction</button>
+  <div class="form-group">
+    <label>Item:</label>
+    <input type="text" placeholder="name the auction-item" name="name" #name="ngModel" [(ngModel)]="newAuction.name" [disabled]="saving" required minlength="6">
+    <p class="error" *ngIf="submitted && name.invalid && name.errors.required">please enter a name</p>
+    <p class="error" *ngIf="submitted && name.invalid && name.errors.minlength">name must have at least 6 characters</p>
+  </div>
+  <div class="form-group">
+    <label>Quantity</label>
+    <input type="number" name="quantity" #quantity="ngModel" [(ngModel)]="newAuction.quantity" [disabled]="saving" required>
+    <p class="error" *ngIf="submitted && quantity.invalid">please enter a valid quantity</p>
+  </div>
+  <div class="form-group">
+    <label>Expires on (UTC): </label>
+    <input type="datetime-local" name="expirationDate" #date="ngModel" [(ngModel)]="newAuction.expirationDate" [disabled]="saving" required appDateFuture>
+    <p class="error" *ngIf="submitted && date.invalid && date.errors.required">please enter a valid date</p>
+    <p class="error" *ngIf="submitted && date.invalid && !date.errors.required && date.errors.dateFuture">please enter a valid date in the future</p>
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]="saving">Create Auction</button>
+  </div>
 </form>
 
 

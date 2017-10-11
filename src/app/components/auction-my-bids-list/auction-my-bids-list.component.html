@@ -1,3 +1,8 @@
-<p>
-  auction-my-bids-list works!
-</p>
+<section>
+  <ul class="card-grid">
+    <li class="card" *ngFor="let bid of bids">
+      <p>Item: {{bid.name}}</p>
+      <p>Quantity: {{bid.quantity}}</p>
+    </li>
+  </ul>
+</section>

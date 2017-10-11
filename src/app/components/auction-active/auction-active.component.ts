@@ -17,6 +17,7 @@ export class AuctionActiveComponent implements OnInit {
   @Output() onNewBid = new EventEmitter<any>();
 
   results;
+  success: boolean = false;
 
 
   constructor(
@@ -40,6 +41,13 @@ export class AuctionActiveComponent implements OnInit {
       this.results = res;
       this.onNewBid.emit(this.results);
     });
+
+    this.success = true;
+    setTimeout(() => {
+      this.success = false;
+    }, 2000);
+    
+    bidForm.reset();
   }
 
 }

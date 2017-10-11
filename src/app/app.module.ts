@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from "@angular/router";
-import { MdButtonModule, MdCheckboxModule } from '@angular/material';
 
 import { routes } from './routes/app.routes'
 
@@ -32,6 +31,7 @@ import { AuctionActiveComponent } from './components/auction-active/auction-acti
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { AuctionPageComponent } from './pages/auction-page/auction-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { DateFutureDirective } from './directives/date-future.directive';
 
 
 
@@ -53,6 +53,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     DashboardPageComponent,
     AuctionPageComponent,
     HomePageComponent,
+    DateFutureDirective,
   ],
   imports: [
     BrowserModule,
@@ -60,8 +61,6 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    MdButtonModule,
-    MdCheckboxModule
   ],
   providers: [
     AuthService,
